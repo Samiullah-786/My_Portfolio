@@ -86,3 +86,27 @@ themeToggleBtn.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
 });
+
+// 4. Mobile Hamburger Menu Toggle
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+const menuIcon = menuToggle.querySelector("i");
+
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+
+    if (navMenu.classList.contains("active")) {
+        menuIcon.classList.replace("fa-bars", "fa-times");
+    } else {
+        menuIcon.classList.replace("fa-times", "fa-bars");
+    }
+});
+
+// Jab koi user link par click kare to menu automatically band ho jaye
+const mobileLinks = document.querySelectorAll("nav a");
+mobileLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        menuIcon.classList.replace("fa-times", "fa-bars");
+    });
+});
